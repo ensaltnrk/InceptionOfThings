@@ -1,0 +1,41 @@
+
+Vagrant.configure("2") do |config|
+  BOX_NAME = "ubuntu/jammy64" # Ubuntu 22.04 LTS
+  VM_MEMORY = 1024
+  VM_CPUS = 1
+  config.vm.define "ealtinorS" do |server|
+    server.vm.box = BOX_NAME
+    server.vm.hostname = "ealtinorS"
+    server.vm.network "private_network", ip: "192.168.56.110"
+    server.vm.provider "virtualbox" do |vb|
+      vb.memory = VM_MEMORY
+      vb.cpus = VM_CPUS
+    end
+    server.vm.provision "shell", inline: <<-SHELL
+      echo "Setting up Server machine"
+      mkdir -p ~/.ssh
+      touch ~/.ssh/authorized_keys
+      chmod 700 ~/.ssh
+      chmod 600 ~/.ssh/authorized_keys
+    SHELL
+  end
+
+  config.vm.define "ealtinorSW" do |server_worker|
+    server_worker.vm.box = BOX_NAME
+    server_worker.vm.hostname = "ealtinorSW"
+    server_worker.vm.network "private_network", ip: "192.168.56.111"
+    server_worker.vm.provider "virtualbox" do |vb|
+      vb.memory = VM_MEMORY
+      vb.cpus = VM_CPUS
+    end
+    # trying connect without no password
+    server_worker.vm.provision "shell", inline: <<-SHELL
+      echo "Setting up ServerWorker machine"
+      mkdir -p ~/.ssh
+      touch ~/.ssh/authorized_keys
+      chmod 700 ~/.ssh
+      chmod 600 ~/.ssh/authorized_keys
+    SHELL
+  end
+end
+  
