@@ -1,6 +1,6 @@
 
 Vagrant.configure("2") do |config|
-  BOX_NAME = "ubuntu/jammy64" # Ubuntu 22.04 LTS
+  BOX_NAME = "debian/bookworm64" # Debian 12
   VM_MEMORY = 1024
   VM_CPUS = 1
   config.vm.define "ealtinorS" do |server|
@@ -12,11 +12,8 @@ Vagrant.configure("2") do |config|
       vb.cpus = VM_CPUS
     end
     server.vm.provision "shell", inline: <<-SHELL
-      echo "Setting up Server machine"
-      mkdir -p ~/.ssh
-      touch ~/.ssh/authorized_keys
-      chmod 700 ~/.ssh
-      chmod 600 ~/.ssh/authorized_keys
+      bash /vagrant/scripts/init-vm.sh
+      bash /vagrant/scripts/k3s-server.sh
     SHELL
   end
 
@@ -28,13 +25,9 @@ Vagrant.configure("2") do |config|
       vb.memory = VM_MEMORY
       vb.cpus = VM_CPUS
     end
-    # trying connect without no password
     server_worker.vm.provision "shell", inline: <<-SHELL
-      echo "Setting up ServerWorker machine"
-      mkdir -p ~/.ssh
-      touch ~/.ssh/authorized_keys
-      chmod 700 ~/.ssh
-      chmod 600 ~/.ssh/authorized_keys
+      bash /vagrant/scripts/init-vm.sh
+      bash /vagrant/scripts/k3s-agent.sh
     SHELL
   end
 end
