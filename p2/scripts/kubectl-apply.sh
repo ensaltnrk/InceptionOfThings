@@ -8,8 +8,8 @@ echo 'K3s is ready!';
 
 # Deploying all apps and ingress
 echo "Deploying..."
-kubectl apply -f ../conf/app-one.yaml
-kubectl apply -f ../conf/app-two.yaml
-kubectl apply -f ../conf/app-three.yaml
-kubectl apply -f ../conf/ingress.yaml
+kubectl apply -f /vagrant/conf/app-one.yaml
+kubectl apply -f /vagrant/conf/app-two.yaml
+kubectl apply -f /vagrant/conf/app-three.yaml
+kubectl apply -f /vagrant/conf/ingress.yaml
 echo "Deployed all apps and ingress!"
