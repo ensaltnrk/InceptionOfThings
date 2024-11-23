@@ -1,1 +1,5 @@
-p1/.vagrant/
+.vagrant
+.vscode
+
+# Ignore token files (e.g agent-token.env)
+*.env

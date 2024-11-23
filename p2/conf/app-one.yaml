@@ -33,3 +33,10 @@ spec:
         image: enesaltinorak/app1:latest
         ports:
         - containerPort: 80
+        resources:
+          requests:
+            cpu: 100m
+            memory: 100Mi
+          limits:
+            cpu: 100m
+            memory: 100Mi
