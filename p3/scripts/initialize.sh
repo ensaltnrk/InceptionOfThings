@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Let the package management tools (apt, dpkg) know about
-# this is an automated script and doesn't have interactive input
-export DEBIAN_FRONTEND=noninteractive
-
 # --- Install Docker ---
 # Add Docker's official GPG key:
 sudo apt-get update -y
