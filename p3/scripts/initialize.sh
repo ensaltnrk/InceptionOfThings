@@ -51,7 +51,7 @@ kubectl wait --for=condition=ready pod --all -n argocd --timeout=300s
 # rm argocd-linux-amd64
 
 # --- Apply ArgoCD Application ---
-kubectl apply -f ../conf/application.yaml
+kubectl apply -f ../confs/application.yaml
 
 # --- Print ArgoCD admin password ---
 kubectl get secret argocd-initial-admin-secret -n argocd -o jsonpath="{.data.password}" | base64 --decode

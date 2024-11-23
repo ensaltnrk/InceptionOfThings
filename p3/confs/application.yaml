@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/ensaltnrk/InceptionOfThings
     targetRevision: HEAD
-    path: p3/conf/dev
+    path: p3/confs/dev
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
