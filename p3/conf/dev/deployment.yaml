@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: wil42
-  label:
+  labels:
     app: wil42
   namespace: dev
 spec:
