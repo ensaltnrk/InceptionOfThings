@@ -17,5 +17,8 @@ echo "Gitlab password: " $(kubectl -n gitlab get secret gitlab-gitlab-initial-ro
 
 kubectl delete ingress gitlab-webservice-default -n gitlab
 
-kubectl apply -f /vagrant/confs/gitlab-ingress.yaml
-kubectl apply -f /vagrant/confs/application.yaml
+kubectl apply -f ../confs/gitlab-ingress.yaml
+kubectl apply -f ../confs/application.yaml
+
+kubectl port-forward svc/gitlab-webservice-default -n gitlab 8181:8181 --adress 0.0.0.0 &
+wait

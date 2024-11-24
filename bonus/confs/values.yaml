@@ -8,7 +8,7 @@ global:
     class: "nginx"
   hosts:
     domain: gitlab.localhost
-    externalIP: 172.18.0.2
+    externalIP: 192.168.56.110
     https: false
   # Disable Rails bootsnap cache (temporary)
   rails:

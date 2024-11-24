@@ -3,6 +3,7 @@
 # Define environment variables to make that K3S installation as an agent
 export K3S_TOKEN=$(cat /vagrant/agent-token.env)
 export K3S_URL="https://192.168.56.110:6443"
+export INSTALL_K3S_EXEC="--node-ip=192.168.56.111"
 
 curl -sfL https://get.k3s.io | sh -
 
