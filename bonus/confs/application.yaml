@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: http://gitlab-webservice-default.gitlab.svc.cluster.local:8181/root/inceptionofthings.git
     targetRevision: HEAD
-    path: p3/confs/dev
+    path: bonus/confs/dev
   destination:
     server: https://kubernetes.default.svc
     namespace: dev
